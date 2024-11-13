@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>X-workz</title>
+    </head>
+    <body>
+
+        <form>
+        <h1>person info</h1>
+
+
+        <span id="nameError"></span><br>
+        <label>Name</label><br>
+        <input type="text" name="name" onblur="handleValidate(event)"><br>
+
+
+        <span id="ageError"></span><br>
+        <lable>Age</lable><br>
+        <input type="number" name="age" onblur="handleValidate(event)"><br>
+
+        <span id="numberError"></span><br>
+        <lable>Phone number</lable><br>
+        <input type="number" name="number" onblur="handleValidate(event)">,<br>
+
+        <span id="addError"></span><br>
+        <label>address</label><br>
+        <input type="text" name="addr" onblur="handleValidate(event)"><br>
+
+        <span id="emailError"></span><br>
+        <label>email</label><br>
+        <input type="email" name="email" onblur="handleValidate(event)"><br>
+
+        <input type="submit" value="send" disabled id="vanish">
+
+
+        </form>
+
+        <script>
+            let formData={};
+
+
+
+
+            const handleValidate=(event)=>{
+                const {name,value}=event.target;
+                console.log(name);
+                console.log(value);
+
+                if(name==="name" && value.trim()&& value.length<4)
+            {
+
+                document.getElementById("nameError").innerHTML="<span style='color:red'>name is in valid</span>";
+            }
+            else  if(name==="name" && value.trim()&& value.length>4)
+            {
+
+                document.getElementById("nameError").innerHTML="";
+            }
+
+            //next
+
+
+            if(name==="age" && value.trim()&& value<=18)
+            {
+
+                document.getElementById("ageError").innerHTML="<span style='color:red'>age is in valid</span>";
+            }
+            else if(name==="age" && value.trim()&& value>=18)
+            {
+
+                document.getElementById("ageError").innerHTML="";
+            }
+
+            //next
+
+            if(name==="addr" && value.trim()&& value.length<4)
+            {
+
+                document.getElementById("addError").innerHTML="<span style='color:red'>add is in valid</span>";
+            }
+            else 
+            if(name==="addr" && value.trim()&& value.length>4)
+            {
+
+                document.getElementById("addError").innerHTML="";
+            }
+            //next
+
+            
+            if(name==="number" && value.trim()&& value.length<10)
+            {
+
+                document.getElementById("numberError").innerHTML="<span style='color:red'>number is in valid</span>";
+            }
+            else  if(name==="number" && value.trim()&& value.length===10)
+            {
+
+                document.getElementById("numberError").innerHTML="";
+            }
+            //next
+            if(name==="email" && value.trim()&& !value.includes("@gmail.com"))
+            {
+
+                document.getElementById("emailError").innerHTML="<span style='color:red'>email is in valid</span>";
+            }
+            else  if(name==="email" && value.trim()&& value.includes("@gmail.com"))
+            {
+
+                document.getElementById("emailError").innerHTML="";
+            }
+
+            formData={
+                ...formData ,[name]:value
+            }
+            console.log(formData);
+            let button =document.getElementById("vanish")
+
+            if(formData.name.length>4&&formData.age>=18&&formData.number.length===10&&formData.addr.length>4&&formData.email.includes("@gmail.com")){
+            
+                button.removeAttribute("disabled");
+            }
+            
+            else
+            {
+                button.setAttribute("disabled","");
+            }
+
+
+            }
+        </script>
+
+    </form>
+    </body>
+</html>

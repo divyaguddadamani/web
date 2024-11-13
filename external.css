@@ -1,0 +1,32 @@
+.para{
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+
+}
+.link{
+    text-decoration-line: underline;
+    text-decoration-color: black;
+    text-decoration-style: dotted;
+
+}
+#i{
+    color: blueviolet;
+}
+#box{
+    padding:5px;
+    border-color: black;
+    margin: 5px;
+}
+#pesdo-id:link{
+    color: crimson;
+
+
+}
+#pesdo-id:active{
+    color: cornflowerblue;
+}
+body{
+    background-image: url(IMG_20220620_094932.jpg);
+    background-repeat: no-repeat;
+
+}
